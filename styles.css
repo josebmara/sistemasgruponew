@@ -1,0 +1,16 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --font-sans: "Manrope", sans-serif; --font-display: "Sora", sans-serif;
+  --radius-sm: calc(var(--radius) - 4px); --radius-md: calc(var(--radius) - 2px); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-destructive: var(--destructive); --color-destructive-foreground: var(--destructive-foreground); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring); --color-sidebar: var(--sidebar); --color-sidebar-foreground: var(--sidebar-foreground); --color-moss: var(--moss); --color-moss-foreground: var(--moss-foreground); --color-sun: var(--sun); --color-sun-foreground: var(--sun-foreground); --color-chat-user: var(--chat-user); --color-chat-user-foreground: var(--chat-user-foreground);
+}
+:root { --radius:.65rem; --background:oklch(.98 .015 135); --foreground:oklch(.31 .045 245); --card:oklch(1 0 0); --card-foreground:oklch(.31 .045 245); --popover:oklch(1 0 0); --popover-foreground:oklch(.31 .045 245); --primary:oklch(.52 .12 160); --primary-foreground:oklch(.99 .01 135); --secondary:oklch(.86 .11 125); --secondary-foreground:oklch(.27 .06 155); --muted:oklch(.94 .025 135); --muted-foreground:oklch(.49 .04 215); --accent:oklch(.83 .15 85); --accent-foreground:oklch(.3 .05 80); --destructive:oklch(.59 .2 28); --destructive-foreground:oklch(.99 0 0); --border:oklch(.88 .035 145); --input:oklch(.88 .035 145); --ring:oklch(.52 .12 160); --sidebar:oklch(.955 .045 140); --sidebar-foreground:oklch(.31 .045 245); --moss:oklch(.75 .13 125); --moss-foreground:oklch(.27 .06 155); --sun:oklch(.83 .15 85); --sun-foreground:oklch(.3 .05 80); --chat-user:oklch(.48 .12 155); --chat-user-foreground:oklch(.99 .01 135); }
+@layer base { * { border-color:var(--color-border); } html { scroll-behavior:smooth; } body { background:var(--color-background); color:var(--color-foreground); font-family:var(--font-sans); letter-spacing:0; } h1,h2,h3,h4 { font-family:var(--font-display); letter-spacing:0; } }
+@keyframes float-soft { 0%,100% { transform:translateY(0) rotate(-1deg); } 50% { transform:translateY(-9px) rotate(1deg); } }
+@keyframes grow-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+@utility ghostie-float { animation:float-soft 4s ease-in-out infinite; }
+@utility enter-soft { animation:grow-in .35s ease-out both; }
+@media (prefers-reduced-motion:reduce) { .ghostie-float,.enter-soft { animation:none; } }
